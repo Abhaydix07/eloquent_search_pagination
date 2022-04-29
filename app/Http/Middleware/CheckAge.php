@@ -16,13 +16,13 @@ class CheckAge
      */
     public function handle(Request $request, Closure $next) {
 
-        // if ($request->input('age') < 21) {
+        if ($request->input('age') < 21) {
         
-        //      session()->flash('error', 'you are not of age');
+             session()->flash('error', 'you are not of age');
         
-        //      return redirect('/');
+             return redirect('/');
         
-        // }
+        }
         
              return $next($request);
         
