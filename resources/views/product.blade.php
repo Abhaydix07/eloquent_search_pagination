@@ -6,25 +6,12 @@
         <div class="container py-5">
             <div class="row">
                 <div class="colo-md-12">
-                    <div id="success_message">
-
-                    </div>
                     <div class="card">
-                        {{-- <a class="btn btn-primary" href="{{route('product')}}" role="button">Link</a> --}}
-                        {{-- <div class="card-header">
-                            <h4>Student Data
-    
-                                <button type="button" class="btn btn-primary float-end btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#AddStudentModel">
-                                    Add Student
-                                </button>
-                            </h4>
-                        </div> --}}
                         <div class="card-body">
                             <div class="row m-3">
                                 <form action="{{ route('product') }}" method="GET" class="col-4">
                                     <input name="search" type="search" class="form-control"
-                                    placeholder="Search By Product Name">
+                                        placeholder="Search By Product Name">
                                     <br>
                                     <button class="btn btn-primary">Search</button>
                                     <a class="btn btn-primary" href="{{ route('product') }}" role="button">Reset</a>
@@ -33,9 +20,9 @@
                             <table class="table table-bordered table-striped">
                                 <form>
                                     <select id="pagination" name="pagination">
-                                        <option value="5" @if($items == 5) selected @endif >5</option>
-                                        <option value="10" @if($items == 10) selected @endif >10</option>
-                                        <option value="25" @if($items == 25) selected @endif >25</option>
+                                        <option value="5" @if ($items == 5) selected @endif>5</option>
+                                        <option value="10" @if ($items == 10) selected @endif>10</option>
+                                        <option value="25" @if ($items == 25) selected @endif>25</option>
                                     </select>
                                 </form>
                                 <thead>
@@ -64,17 +51,8 @@
                                             <button type="submit" class="btn ">Price</button>
                                         </form>
                                     </th>
-                                    {{-- <th><button class="btn">Add To Cart</button></th> --}}
-
-
                                 </thead>
-                                {{-- @foreach ($posts as $post)
-                                                <tr>
-                                                    <td class="px-6 py-4 whitespace-nowrap">{{ $post->user->name }}</td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">{{ $post->slug }}</td>
-                                                    <td class="px-6 py-4 whitespace-nowrap">{{ $post->body }}</td>
-                                                </tr>
-                                            @endforeach --}}
+
                                 <tbody>
                                     @foreach ($products as $product)
                                         <tr>
@@ -82,7 +60,6 @@
                                             <td>{{ $product->product_name }}</td>
                                             <td>{{ $product->quantity }}</td>
                                             <td>{{ $product->price }}</td>
-                                            {{-- <td> <button class="btn btn-info">Add To Cart</button></td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -95,13 +72,9 @@
             </div>
         </div>
         <script>
-            document.getElementById('pagination').onchange = function() { 
-                window.location = "{{route('product')}}?items=" + this.value; 
-            }; 
+            document.getElementById('pagination').onchange = function() {
+                window.location = "{{ route('product') }}?items=" + this.value;
+            };
         </script>
     </x-slot>
-
-
-
-
 </x-app-layout>
